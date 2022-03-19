@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TodoList.Models.Gorev>
+
+@{
+    ViewBag.Title = "TodoView";
+}
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Todo-List</title>
+    <link rel="stylesheet" type="text/css" href="~/Todo/TodoList.css" />
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Todo/TodoList.js"></script>
+</head>
+<body>
+    <div id="alan">
+        <h2 id="baslik">Todo-List</h2>
+        <table id="tabloGorevler">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(g => g.GorevKategori)</th>
+                    <th>@Html.DisplayNameFor(g => g.GorevIcerigi)</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var gorev in Model)
+                {
+                    <tr class="gorevler">
+                        <td>@gorev.GorevKategori</td>
+                        <td>@gorev.GorevIcerigi</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+        <div id="yeniGorev">
+            <input id="eklenenKategori" type="text" placeholder="Kategori Girin" />
+            <input id="eklenenIcerik" type="text" placeholder="İçerik Girin" />
+            <button id="butonEkle">+</button>
+        </div>
+        <button id="butonTemizle">Listeyi Temizle</button>
+
+    </div>
+
+</body>
+</html>
+
+
